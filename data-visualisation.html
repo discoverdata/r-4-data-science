@@ -136,7 +136,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.9" data-path="data-visualisation.html"><a href="data-visualisation.html#coordinate-systems"><i class="fa fa-check"></i><b>3.9</b> Coordinate systems</a><ul>
 <li class="chapter" data-level="3.9.1" data-path="data-visualisation.html"><a href="data-visualisation.html#exercise-8"><i class="fa fa-check"></i><b>3.9.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="3.10" data-path="data-visualisation.html"><a href="data-visualisation.html#the-layered-grammer-of-graphics"><i class="fa fa-check"></i><b>3.10</b> The layered grammer of graphics</a><ul>
+<li class="chapter" data-level="3.10" data-path="data-visualisation.html"><a href="data-visualisation.html#the-layered-grammar-of-graphics"><i class="fa fa-check"></i><b>3.10</b> The layered grammar of graphics</a><ul>
 <li class="chapter" data-level="3.10.1" data-path="data-visualisation.html"><a href="data-visualisation.html#exercise-9"><i class="fa fa-check"></i><b>3.10.1</b> Exercise</a></li>
 </ul></li>
 </ul></li>
@@ -147,7 +147,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.2" data-path="workflowbasics.html"><a href="workflowbasics.html#whats-in-the-name"><i class="fa fa-check"></i><b>4.2</b> What’s in the name</a><ul>
 <li class="chapter" data-level="4.2.1" data-path="workflowbasics.html"><a href="workflowbasics.html#exercise-11"><i class="fa fa-check"></i><b>4.2.1</b> Exercise</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="workflowbasics.html"><a href="workflowbasics.html#calling-functions."><i class="fa fa-check"></i><b>4.3</b> Calling functions.</a><ul>
+<li class="chapter" data-level="4.3" data-path="workflowbasics.html"><a href="workflowbasics.html#calling-functions"><i class="fa fa-check"></i><b>4.3</b> Calling functions</a><ul>
 <li class="chapter" data-level="4.3.1" data-path="workflowbasics.html"><a href="workflowbasics.html#exercise-12"><i class="fa fa-check"></i><b>4.3.1</b> Exercise</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="workflowbasics.html"><a href="workflowbasics.html#practice"><i class="fa fa-check"></i><b>4.4</b> Practice</a><ul>
@@ -192,13 +192,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>Q1.</strong> Run <code>ggplot(data = mpg)</code>. What do you see?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.2.4q1-1.png" width="672" /></p>
-<p><strong>Ans1.</strong> A blank plot. We have not mapped anything to aesthetics.</p>
+<p><strong>Ans1.</strong> A blank plot. We have not yet mapped anything into aesthetics.</p>
 <p><strong>Q2.</strong> How many rows in <code>mpg</code>? How many columns?</p>
-<p><strong>Ans2.</strong> Running <code>dim(mpg)</code> gives 234 rows and 11 columns. Alternatively one can also run <code>nrow(mpg)</code> to obtain number of rows and <code>ncol(mpg)</code> to obtain the columns. Futher, one can also use <code>str(mpg)</code>. The first line conatins the required information.</p>
+<p><strong>Ans2.</strong> Running <code>dim(mpg)</code> gives 234 rows and 11 columns. Alternatively one can also run <code>nrow(mpg)</code> to obtain the number of rows and <code>ncol(mpg)</code> to obtain the columns. Further, one can also use <code>str(mpg)</code>. The first line contains the required information.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dim</span>(mpg)</code></pre></div>
 <pre><code>## [1] 234  11</code></pre>
 <p><strong>Q3.</strong> What does <code>drv</code> variable describe? Read the help for <code>?mpg</code> to find out.</p>
-<p><strong>Ans3.</strong> The <code>drv</code> describes how the cars drives <em>i.e.</em> by front two wheels, the rear wheels or all four wheels.</p>
+<p><strong>Ans3.</strong> The <code>drv</code> describes how the cars drive <em>i.e.</em> by front two wheels, the rear wheels or all four wheels.</p>
 <table>
 <thead>
 <tr class="header">
@@ -223,12 +223,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <strong>Ans5.</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>( <span class="dt">x =</span> class, <span class="dt">y =</span> drv)) +<span class="st"> </span><span class="kw">geom_point</span>() </code></pre></div>
 <p><img src="_main_files/figure-html/ex3.2.4q5-1.png" width="672" /></p>
-<p>The plot is not useful because of overploting. For example there are many cars of compact class but from the plot it seems as if there are only two cars.</p>
+<p>The plot is not useful because of overplotting. For example, there are many cars in the compact class but from the plot, it seems as if there are only two cars.</p>
 </div>
 </div>
 <div id="aesthetic-mapping" class="section level2">
 <h2><span class="header-section-number">3.3</span> Aesthetic mapping</h2>
-<p>An <strong>aesthetic</strong> is a visual property of the objects in the plot. It include things like <strong>the color, the shape, or the size</strong> of the points. We can convey the information about the data by mapping the aesthetics in the plot to the variables in the dataset. For example, colors of the points can be mapped to the <code>class</code> variable to show the class of each car.</p>
+<p>An <strong>aesthetic</strong> is a visual property of the objects in the plot. It includes things like <strong>the color, the shape, or the size</strong> of the points. You can convey information about the data by mapping the aesthetics in the plot to the variables in the dataset. For example, the colors of the points can be mapped to the <code>class</code> variable to show the class of each car.</p>
 <div id="exercise-2" class="section level3">
 <h3><span class="header-section-number">3.3.1</span> Exercise</h3>
 <p><strong>Q1.</strong> What’s wrong with this code? Why are the points not blue?</p>
@@ -239,7 +239,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) +<span class="st"> </span>
 <span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy), <span class="dt">color =</span> <span class="st">&quot;blue&quot;</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.3.1q1_1-1.png" width="672" /></p>
-<p><strong>Q2.</strong> Which variable in <code>mpg</code> are categorical?Which are continuous?(Hint: type <code>?mpg</code> to read the documentation for the dataset). How can you see this information when you run <code>mpg</code>)?<br />
+<p><strong>Q2.</strong> Which variables in <code>mpg</code> are categorical? Which one is continuous? (Hint: type <code>?mpg</code> to read the documentation for the dataset). How can you see this information when you run <code>mpg</code>)?<br />
 <strong>Ans2.</strong> We can use either <code>?mpg</code>and read from the help page or can run <code>str(mpg)</code> to find out about the type of variables in the <code>mpg</code> dataset.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">str</span>(mpg)</code></pre></div>
 <pre><code>## Classes &#39;tbl_df&#39;, &#39;tbl&#39; and &#39;data.frame&#39;:    234 obs. of  11 variables:
@@ -259,7 +259,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <ol style="list-style-type: lower-roman">
 <li>Mapping <strong>color to continuous variable.</strong></li>
 </ol>
-<p>When mapping a continuous variable to <code>color</code>,for example <code>cty</code> is mapped to color, a color gradient is displayed to represent the values of the continuous variable. By defalut ggplot creates a color gradient from light blue to dark blue.</p>
+<p>When mapping a continuous variable to <code>color</code>, for example, <code>cty</code> is mapped to color, a color gradient is displayed to represent the values of the continuous variable. By default, the ggplot creates a color gradient from light blue to dark blue.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> cty, <span class="dt">color =</span> cty)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.3.1q3_1-1.png" width="672" /></p>
 <ol start="2" style="list-style-type: lower-roman">
@@ -268,11 +268,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> cty, <span class="dt">size =</span> cty)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.3.1q3_2-1.png" width="672" /></p>
 <ol start="3" style="list-style-type: lower-roman">
-<li>Mapping <strong>shape to continuous variable.</strong></li>
+<li>Mapping <strong>shape to a continuous variable.</strong></li>
 </ol>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> cty, <span class="dt">shape =</span> cty)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <pre><code>## Error: A continuous variable can not be mapped to shape</code></pre>
-<p>Mapping a shape to continuous variable does not make sense. The continuous variable have a natural order but shapes have no natural order for example we cannot say a rectangle is greater or less than a triangle.</p>
+<p>Mapping a shape to a continuous variable does not make sense. The continuous variable has a natural order but shapes have no natural order. For example, we cannot say a rectangle is greater or less than a triangle.</p>
 <ol start="4" style="list-style-type: lower-roman">
 <li>Mapping color to a categorical variable</li>
 </ol>
@@ -282,12 +282,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <strong>Ans4.</strong> It is possible to map the same variable to multiple aesthetics provided the mapping is allowed for the aesthetic. However, mapping the same variable adds redundant information and should be avoided. For example <code>drv</code> variable is mapped to the <code>color</code> and <code>shape</code> aesthetic in the plot below.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">color =</span> drv, <span class="dt">shape =</span> drv)) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.3.1q4-1.png" width="672" /></p>
-<p><strong>Q5.</strong> What does the <code>stroke</code> aesthetic do?What shapes does it work with?(Hint: use <code>?geom_point</code>)<br />
+<p><strong>Q5.</strong> What does the <code>stroke</code> aesthetic do? What shapes does it work with?(Hint: use <code>?geom_point</code>)<br />
 <strong>Ans5.</strong> The <code>stroke</code> aesthetic is used to change the border for shapes 21-25 which is given as property to <code>geom_points()</code>. The size and color of the border can be altered with the <code>stroke</code> and <code>color</code>. For example</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) +<span class="st"> </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">fill =</span> <span class="st">&quot;yellow&quot;</span>, <span class="dt">size =</span> <span class="dv">3</span>, <span class="dt">stroke =</span> <span class="dv">3</span>, <span class="dt">color =</span> <span class="st">&quot;black&quot;</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.3.1q5-1.png" width="672" /></p>
 <p><strong>Q6.</strong> What happens if you map an aesthetic to something other than the variable name, like <code>aes(color = displ &lt;5)</code> ?<br />
-<strong>Ans6.</strong> This will divide the data in two parts and create a temporary boolean variable indicating <code>TRUE</code> if the observations satisfy the condition <code>FALSE</code> otherwise. For example</p>
+<strong>Ans6.</strong> This will divide the data into two parts and create a temporary boolean variable indicating <code>TRUE</code> if the observations satisfy the condition <code>FALSE</code> otherwise. For example</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> cty, <span class="dt">color =</span> displ&lt;<span class="dv">5</span> )) +<span class="st"> </span><span class="kw">geom_point</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.3.1q6-1.png" width="672" /></p>
 </div>
@@ -304,21 +304,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="facets" class="section level2">
 <h2><span class="header-section-number">3.5</span> Facets</h2>
-<p><strong>Facets</strong> are used to split the plots based on variables particularly useful for categorical variables. <code>facet_warp</code> is used to split the plot using single variable and <code>facet_grid</code> is used to split the plot using a combination of variables.</p>
+<p><strong>Facets</strong> are used to split plots based on variables particularly useful for categorical variables. <code>facet_warp</code> is used to split the plot using a single variable and <code>facet_grid</code> is used to split the plot using a combination of variables.</p>
 <div id="exercise-4" class="section level3">
 <h3><span class="header-section-number">3.5.1</span> Exercise</h3>
 <p><strong>Q1.</strong> What happens if you facet on a continuous variable?<br />
 <strong>Ans1.</strong> The facet will convert the continuous variable into factors and we get as many plots as factors. For example</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> cty, <span class="dt">color =</span> drv)) +<span class="st"> </span><span class="kw">geom_point</span>() +<span class="st"> </span><span class="kw">facet_wrap</span>(~cyl)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.5.1q1-1.png" width="672" /></p>
-<p><strong>Q2.</strong> What do the empty cells in plot with <code>facet_grid(drv ~ cyl)</code> mean?How do they relate to this plot?</p>
+<p><strong>Q2.</strong> What do the empty cells in a plot with <code>facet_grid(drv ~ cyl)</code> mean? How do they relate to this plot?</p>
 <p><strong>Ans2.</strong></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(mpg, <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> cty)) +<span class="st"> </span>
 <span class="st">         </span><span class="kw">geom_point</span>() +
 <span class="st">         </span><span class="kw">facet_grid</span>(drv ~<span class="st"> </span>cyl)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.5.1q2-1.png" width="672" /></p>
 <p>The empty grids in the <code>facet_grid(drv ~ cyl)</code> represents the fact that there are no observations for a particular combination of <code>drv</code> and <code>cyl</code>.</p>
-<p><strong>Q3.</strong> What plot does the following code make? What does <code>.</code> do ?</p>
+<p><strong>Q3.</strong> What plot does the following code make? What does <code>.</code> do?</p>
 <p><strong>Ans3.</strong> The general formula in the <code>facet_grid</code> plots is <code>facet_grid(ROWS ~ COLUMNS)</code>. A <code>.</code> means to ignore the faceting in that dimension.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) +
@@ -335,15 +335,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">facet_wrap</span>(~<span class="st"> </span>class, <span class="dt">nrow =</span> <span class="dv">2</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.5.1q4_1-1.png" width="672" /></p>
-<p>What are the advantages to using faceting instead of the colour aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?</p>
-<p><strong>Ans4.</strong> The advantage of faceting is clear when there are many groups in a large dataset. As the number of unique groups rise it becomes increasingly confusing to distinguish groups using different colors in the same plot.</p>
-<p>The same plot when the <code>class</code> is represented by color aesthetic rather than faceting.</p>
+<p>What are the advantages of using faceting instead of the color aesthetic? What are the disadvantages? How might the balance change if you had a larger dataset?</p>
+<p><strong>Ans4.</strong> The advantage of faceting is clear when there are many groups in a large dataset. As the number of unique groups rises it becomes increasingly confusing to distinguish groups using different colors in the same plot.</p>
+<p>The same plot is represented by color aesthetic rather than faceting.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">col =</span> class))</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.5.1q4_2-1.png" width="672" /></p>
-<p>A possible disadvantage of faceting is that since the observations are divided into separate plots a direct comparision may be difficult. Therefore, it may be worth showing each group with a different color in the same plot if the dataset is smaller and there are small numbet of groups to compare.</p>
+<p>A possible disadvantage of faceting is that since the observations are divided into separate plots a direct comparison may be difficult. Therefore, it may be worth showing each group with a different color in the same plot if the dataset is smaller and there are a small number of groups to compare.</p>
 <p><strong>Q5.</strong> Read <code>?facet_wrap</code>. What does <code>nrow</code> do? What does <code>ncol</code> do? What other options control the layout of the individual panels? Why doesn’t <code>facet_grid()</code> have <code>nrow</code> and <code>ncol</code> arguments?</p>
-<p><strong>Ans5.</strong> <code>nrow</code> and <code>ncol</code> refer to number of rows and columns of the panel in a <code>facet_wrap</code> plot. It is useful to specify number of rows or columns because <code>facet_wrap</code> facets using only one variable. For example</p>
+<p><strong>Ans5.</strong> <code>nrow</code> and <code>ncol</code> refer to the number of rows and columns of the panel in a <code>facet_wrap</code> plot. It is useful to specify the number of rows or columns because <code>facet_wrap</code> facets using only one variable. For example</p>
 <p><em>Facet with 1 row</em></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) +<span class="st"> </span>
@@ -356,7 +356,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><img src="_main_files/figure-html/ex3.5.1q5_2-1.png" width="672" /></p>
 <p>These arguments are unnecessary in <code>facet_grid</code> because the number of rows and columns are automatically calculated from the unique values of the variables specified in the <code>facet_grid(ROWS ~ COLUMNS)</code> command.</p>
 <p><strong>Q6.</strong> When using <code>facet_grid()</code> you should usually put the variable with more unique levels in the columns. Why?</p>
-<p><strong>Ans6.</strong> It is advised to put variables with more unique levels in columns in a landscape mode because it is much easier visually to see the trend in a dependent variable y by scanning horizontally. For example</p>
+<p><strong>Ans6.</strong> It is advised to put variables with more unique levels in columns in landscape mode because it is much easier visually to see the trend in a dependent variable “y” by scanning horizontally. For example</p>
 <p><em>More unique levels in rows</em></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) +<span class="st"> </span>
@@ -371,7 +371,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="geometric-object" class="section level2">
 <h2><span class="header-section-number">3.6</span> Geometric object</h2>
-<p>A <strong>geom</strong> is the geometric object that a plot uses to display the data. For example a line chart uses line geoms and bar chart uses a bar geoms and so on to display the data.</p>
+<p>A <strong>geom</strong> is the geometric object that a plot uses to display the data. For example, a line chart uses line geoms and bar chart uses a bar geoms and so on to display the data.</p>
 <div id="exercise-5" class="section level3">
 <h3><span class="header-section-number">3.6.1</span> Exercise</h3>
 <p><strong>Q1.</strong> What geom would you use to draw a line chart? A boxplot? A histogram? An area chart?</p>
@@ -410,7 +410,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
     <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy, <span class="dt">colour =</span> drv),
     <span class="dt">show.legend =</span> <span class="ot">FALSE</span>)</code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
-<p>In the above code legend was suppressed in the last plot because the context of the code was to show the difference between mapping a variable to <code>group</code> (which does not add legend by itself) and <code>color</code> (which add legends) aesthetic.</p>
+<p>In the above code, the legend was suppressed in the last plot because the context of the code was to show the difference between mapping a variable to <code>group</code> (which does not add legend by itself) and <code>color</code> (which add legends) aesthetic.</p>
 <p><strong>Q4.</strong> What does the <code>se</code> argument to <code>geom_smooth</code> do?</p>
 <p><strong>Ans4.</strong> <code>se</code> argument is used to display <code>se = TRUE</code> or hide <code>se = FALSE</code> the standard error bands to the line. <code>se</code> is <code>TRUE</code> by default. For example</p>
 <p><code>se = TRUE</code></p>
@@ -434,7 +434,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> displ, <span class="dt">y =</span> hwy))</code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;loess&#39;</code></pre>
-<p><strong>Ans5.</strong> No, because in the second plot both <code>geom_point()</code> and <code>geom_smooth()</code> take same data and mappings as defined in <code>ggplot</code> in the first plot. Infact geom objects can inherit those values from <code>ggplot</code> object, therefore, it is unnecessary to be specified again.</p>
+<p><strong>Ans5.</strong> No, because in the second plot both <code>geom_point()</code> and <code>geom_smooth()</code> take the same data and mappings as defined in <code>ggplot</code> in the first plot. In fact, geom objects can inherit those values from <code>ggplot</code> object, therefore, it is unnecessary to be specified again.</p>
 <p><strong>Q6.</strong> Recreate the R code necessary to generate the following graphs.</p>
 <p><strong>Ans6.</strong></p>
 <p><em>Plot 1</em></p>
@@ -471,11 +471,11 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </div>
 <div id="statistical-transformations" class="section level2">
 <h2><span class="header-section-number">3.7</span> Statistical transformations</h2>
-<p>Some graphs like bar charts, boxplots uses an algorithim to calculate new values to generate a plot. The algorithim used is called <strong>stat</strong> (statistical transformations). For example bar charts, histograms or frequency polygons bin the data and then plot the count of the points that fall in each bin. The counts are originally not necessarily present in the original data.</p>
+<p>Some graphs like bar charts, boxplots uses an algorithm to calculate new values to generate a plot. The algorithm used is called <strong>stat</strong> (statistical transformations). For example bar charts, histograms or frequency polygons bin the data and then plot the count of the points that fall in each bin. The counts were originally not necessarily present in the original data.</p>
 <div id="exercise-6" class="section level3">
 <h3><span class="header-section-number">3.7.1</span> Exercise</h3>
 <p><strong>Q1.</strong> What is the default geom associated with <code>stat_summary()</code>?. How could you rewrite the previous plot to use that geom function instead of the stat function?</p>
-<p><strong>Ans1.</strong> The default geom assocaited with <code>stat_summary</code> is <code>geom_pointrange</code>. See <code>?stat_summary</code>. The default stat in <code>geom_pointrange</code> is “identity” therefore, using “summary” and change the min, max and midpoint to produce the same plot.</p>
+<p><strong>Ans1.</strong> The default geom associated with <code>stat_summary</code> is <code>geom_pointrange</code>. See <code>?stat_summary</code>. The default stat in <code>geom_pointrange</code> is “identity” therefore, using “summary” and change the min, max, and midpoint to produce the same plot.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(diamonds, <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> depth)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_pointrange</span>(<span class="dt">stat =</span> <span class="st">&quot;summary&quot;</span>,
                   <span class="dt">fun.ymin =</span> min, 
@@ -487,18 +487,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p><strong>Ans2.</strong> The <code>geom_col()</code> and <code>geom_bar()</code> are used to make bar charts. The difference being <code>geom_col()</code> uses <code>stat_identity</code> as the default stat whereas <code>geom_bar()</code> uses <code>stat_count</code> as the default stat. In other words <code>geom_col()</code> expects that the data is preprocessed into x and y values and plots the data as it is whereas <code>geom_bar()</code> will create either of two variables(count or prop) and then plots the count data on the y axis.</p>
 <p><strong>Q3.</strong> Most geoms and stats come in pairs that are almost always used in concert. Read through the documentation and make a list of all the pairs. What do they have in common?</p>
 <p><strong>Ans3.</strong> Please look at the <a href="http://ggplot2.tidyverse.org/reference/">documentation</a></p>
-<p><strong>Q4.</strong> What variables does <code>stat_smooth()</code> compute? What parameters control its behaviour?</p>
+<p><strong>Q4.</strong> What variables does <code>stat_smooth()</code> compute? What parameters control its behavior?</p>
 <p><strong>Ans4.</strong> The function <code>stat_smooth()</code> calculates the following statistics: * y - predicted value * ymin - lower value of the confidence interval * ymax - upper value of the confidence interval * se - standard error</p>
 <p>Based on <code>?stat_smooth</code> the statistics can be controlled with the method argument. There can be different methods like <code>lm</code>, <code>glm</code>, <code>loess</code> among others which determines the type of method used to calculate the predictions and confidence interval.</p>
-<p><strong>Q5.</strong> In our proportion bar chart, we need to set <code>group = 1</code>. Why? In other words what is the problem with these two graphs?</p>
+<p><strong>Q5.</strong> In our proportion bar chart, we need to set <code>group = 1</code>. Why? In other words, what is the problem with these two graphs?</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> ..prop..))</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.7.1q5-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">fill =</span> color, <span class="dt">y =</span> ..prop..))</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.7.1q5-2.png" width="672" /></p>
-<p><strong>Ans5.</strong> If the group is not set to 1, then all the bars have proportion == 1. By default <code>geom_bar()</code> treats number of x values as individual group and <code>stat</code> computes the count within each group therefore, we get prop == 1 for each value of x in the above graphs.</p>
-<p>Following is the version we mostly likely intended</p>
+<p><strong>Ans5.</strong> If the group is not set to 1, then all the bars have proportion == 1. By default <code>geom_bar()</code> treats the number of x values as the individual group and <code>stat</code> computes the count within each group, therefore, we get prop == 1 for each value of x in the above graphs.</p>
+<p>Following is the version we most likely intended</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> diamonds) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cut, <span class="dt">y =</span> ..prop.., <span class="dt">group  =</span> <span class="dv">1</span>))</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.7.1q5_1-1.png" width="672" /></p>
@@ -544,15 +544,15 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <span class="kw">geom_jitter</span>(<span class="dt">width =</span> <span class="dv">1</span>, <span class="dt">height =</span> <span class="dv">1</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.8.1q2_4-1.png" width="672" /></p>
 <p><strong>Q3.</strong> Compare and contrast <code>geom_jitter()</code> with <code>geom_count()</code>.</p>
-<p><strong>Ans3.</strong> <code>geom_jitter()</code> adds the random noise in the plot. It reduces the overplotting however, at the cost of altering the actual <code>x</code> and <code>y</code> values of the points. For example:</p>
+<p><strong>Ans3.</strong> <code>geom_jitter()</code> adds random noise in the plot. It reduces the overplotting however, at the cost of altering the actual <code>x</code> and <code>y</code> values of the points. For example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cty, <span class="dt">y =</span> hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_jitter</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.8.1q3_1-1.png" width="672" /></p>
-<p><code>geom_count()</code> controls the size the points based on the frequency of observations at each location. In other words points with more observations will be larger than with fewer observations. This does not change the actual <code>x</code> and <code>y</code> values however, is prone to overplotting if the points are large and close to each other.For example:</p>
+<p><code>geom_count()</code> controls the size of points based on the frequency of observations at each location. In other words, points with more observations will be larger than those with fewer observations. This does not change the actual <code>x</code> and <code>y</code> values, however, is prone to overplotting if the points are large and close to each other. For example:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cty, <span class="dt">y =</span> hwy)) +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_count</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.8.1q3_2-1.png" width="672" /></p>
-<p><strong>Q4.</strong> What’s the default position adjustment for <code>geom_boxplot()</code>? Create a visualizaion of the <code>mpg</code> dataset that demonstrates it.</p>
+<p><strong>Q4.</strong> What’s the default position adjustment for <code>geom_boxplot()</code>? Create a visualization of the <code>mpg</code> dataset that demonstrates it.</p>
 <p><strong>Ans4.</strong> As per the documentation the default position for <code>geom_boxplot()</code> is <code>&quot;dodge&quot;</code>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> drv, <span class="dt">y =</span> cty, <span class="dt">colour =</span> manufacturer)) +
 <span class="st">  </span><span class="kw">geom_boxplot</span>()</code></pre></div>
@@ -578,7 +578,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> manufacturer, <span class="dt">y =</span> cty )) +<span class="st"> </span><span class="kw">geom_boxplot</span>() +<span class="st"> </span><span class="kw">coord_flip</span>() +<span class="st"> </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;City MPG&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">title =</span> <span class="st">&quot;City MPG by manufacturer&quot;</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.9.1q2_1-1.png" width="672" /></p>
 <p><strong>Q3.</strong> What is the difference between <code>coord_quickmap()</code> and <code>coord_map()</code>?</p>
-<p><strong>Ans3.</strong> From the <a href="https://ggplot2.tidyverse.org/reference/coord_map.html">documentation</a> of <code>coord_map</code> it is <code>coord_quickmap</code> is a quick approximation of the <code>coord_map</code> algorithim to project a portion of earth, which is spherical, onto a flat 2D plane using a projection called “mercator” defined in <code>mapproj</code> package.</p>
+<p><strong>Ans3.</strong> From the <a href="https://ggplot2.tidyverse.org/reference/coord_map.html">documentation</a> of <code>coord_map</code> it is <code>coord_quickmap</code> is a quick approximation of the <code>coord_map</code> algorithm to project a portion of the earth, which is spherical, onto a flat 2D plane using a projection called “Mercator” defined in <code>mapproj</code> package.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="st">&quot;maps&quot;</span>)</code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;maps&#39;</code></pre>
@@ -600,7 +600,7 @@ nzmap +<span class="st"> </span><span class="kw">coord_map</span>()</code></pre>
 <span class="st">  </span><span class="kw">coord_fixed</span>()</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.9.1q4-1.png" width="672" /></p>
 <p><strong>Ans4.</strong> The plot tells us that <code>hwy</code> mpg is always higher than city mpg and there is a strong positive correlation. <code>coord_fixed</code> is important because &gt; A fixed scale coordinate system forces a specified ratio between the physical representation of data units on the axes. – Documentation of coord_fixed()</p>
-<p>The default <code>ratio = 1</code>. Ratio greater than 1 make unit on the y axis longer than the units on the x axis. For example:</p>
+<p>The default <code>ratio = 1</code>. The ratio greater than 1 makes the unit on the y-axis longer than the units on the x-axis. For example:</p>
 <ul>
 <li>ratio &gt; 1</li>
 </ul>
@@ -617,7 +617,7 @@ nzmap +<span class="st"> </span><span class="kw">coord_map</span>()</code></pre>
 <span class="st">  </span><span class="kw">geom_abline</span>() +
 <span class="st">  </span><span class="kw">coord_fixed</span>(<span class="dt">ratio =</span> <span class="fl">0.5</span>)</code></pre></div>
 <p><img src="_main_files/figure-html/ex3.9.1q4_2-1.png" width="672" /></p>
-<p>Finally <code>geom_abline()</code> adds reference lines also called rules to the plot either horizontal, vertical or diagonal(using <code>slope</code> and <code>intercept</code> arguments). The default values are <code>slope=1</code> and <code>intercept=0</code>. If any point fall on reference line it indicates that highway and city mpg are same for that point. For example both the codes produce the same plot:</p>
+<p>Finally <code>geom_abline()</code> adds reference lines also called rules to the plot either horizontal, vertical or diagonal(using <code>slope</code> and <code>intercept</code> arguments). The default values are <code>slope=1</code> and <code>intercept=0</code>. If any point falls on the reference line it indicates that the highway and city mpg is the same at that point. For example, both the codes produce the same plot:</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(<span class="dt">data =</span> mpg, <span class="dt">mapping =</span> <span class="kw">aes</span>(<span class="dt">x =</span> cty, <span class="dt">y =</span> hwy)) +
 <span class="st">  </span><span class="kw">geom_point</span>() +<span class="st"> </span>
 <span class="st">  </span><span class="kw">geom_abline</span>() +
@@ -632,10 +632,10 @@ nzmap +<span class="st"> </span><span class="kw">coord_map</span>()</code></pre>
 <p><img src="_main_files/figure-html/ex3.9.1q4_4-1.png" width="672" /></p>
 </div>
 </div>
-<div id="the-layered-grammer-of-graphics" class="section level2">
-<h2><span class="header-section-number">3.10</span> The layered grammer of graphics</h2>
+<div id="the-layered-grammar-of-graphics" class="section level2">
+<h2><span class="header-section-number">3.10</span> The layered grammar of graphics</h2>
 <blockquote>
-<p>The grammer of graphics is based on the insight that you can uniquely describe <em>any</em> plot as a combination of dataset, a geom, a set of mappings, a stat, a position adjustments, a coordinate system and a faceting scheme. – R for Data Science</p>
+<p>The grammar of graphics is based on the insight that you can uniquely describe <em>any</em> plot as a combination of a dataset, a geom, a set of mappings, a stat, a position adjustment, a coordinate system, and a faceting scheme. – R for Data Science</p>
 </blockquote>
 <div id="exercise-9" class="section level3">
 <h3><span class="header-section-number">3.10.1</span> Exercise</h3>
