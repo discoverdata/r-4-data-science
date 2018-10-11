@@ -1,0 +1,31 @@
+# Introduction
+
+__Data Science turns raw data into information, insights and knowledge.__
+
+__Major steps__
+
+1. __Import data__ into R from file, database or web API
+2. __Tidy__ the data
+  - each column is a variable
+  - each row is an observation
+3. __Transform it__. Narrowing in on observations of interest(like all people in city, all data from last year)
+computing new variables like 
+          $$speed = distance / time$$
+Calculating summary statistics. Togather tidying and transforming is called __Data Wrangling__.
+
+4. Once data is tidy two major engines of knowledge generation: __visualization and modelling__
+  - Visualization: a good visualization may raise new questions about the data.
+  - Models: complementary tools to visualization. Use models to answer questions.
+
+5. __Communication__: absolutely critical.
+
+6. Surrounding all these tools is __programming.__ Dont have to be an expert but programming pays off by automating common tasks.
+
+R is a great place to start data science (DS) journey because R is not only a programming language, but also an intercative eviornment for doing DS.
+
+Data Analysis has two parts  
+
+a). Hypothesis generation (Data exploration).  
+b). Hypothesis confirmation(Confirmatory analysis).
+
+Data exploration is the art of looking at data, rapidly generating hypothesis, quickly testing them and repeating it again. The goal is to generate many promising leads that can be later explored in more depth.

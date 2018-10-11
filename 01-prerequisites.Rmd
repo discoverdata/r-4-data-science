@@ -1,0 +1,12 @@
+# Prerequisites
+
+## R
+Download R
+
+## RStudio
+
+## Packages
+* tidyverse
+
+
+No exercise.
