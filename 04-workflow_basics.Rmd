@@ -1,0 +1,82 @@
+# Workflow:basics
+
+```{r, message=FALSE}
+library("tidyverse")
+```
+
+## Coding basics
+
+R can be used as a calculator.
+
+### Exercise 
+
+No exercise. 
+
+## What's in the name
+
+i_am_snake_case
+
+IAmCamelCase
+
+i.am.period.case
+
+i_am.MixCase
+
+### Exercise
+
+No exercise.
+
+## Calling functions
+
+Call functions using the syntax below:
+
+`function_name(arg1 = value1, arg2 = value2)`
+
+### Exercise 
+
+No exercise.
+
+## Practice
+
+### Exercise
+
+**Q1.** Why does the code does not work?
+
+```{r ex4.4.1q1, error=TRUE, collapse=TRUE}
+my_variable <- 10
+my_varıable
+```
+
+**Ans1.** The code does not work because the variable which is assigned the value 10 is `my_variable` whereas the variable being called is different. The R will throw an error if it cannot find the variable in the environment.
+
+**Q2.** Tweak each of the following R commands so that they run correctly:
+
+```{r ex4.4.1q2, error=TRUE, collapse=TRUE,fig.keep='none'}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+
+fliter(mpg, cyl = 8)
+filter(diamond, carat > 3)
+```
+
+**Ans2.** There are typos in the above code. Although, the first part of the code is correct.
+```{r ex4.4.1q2_1}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))
+```
+
+`fliter` should be `filter` and `=` should be `==`
+
+```{r ex4.4.1q2_2}
+filter(mpg, cyl == 8)
+```
+
+diamond should be diamonds
+
+```{r ex4.4.1q_3}
+filter(diamonds, carat > 3)
+```
+
+**Q3.** Press Alt + Shift + K. What happens? How can you get to the same place using the menus?
+
+**Ans3.** It gives the keyboard shortcuts menu. The same can be achieved under Tools -> Keyboard shortcuts or Help -> Keyboard shortcuts.

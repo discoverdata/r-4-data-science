@@ -1,5 +1,5 @@
 ---
-title: "R for Data Science Solutions"
+title: "R for Data Science Notes and Solutions"
 author: "Varun Khanna"
 date: "`r Sys.Date()`"
 site : bookdown::bookdown_site
